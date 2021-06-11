@@ -7,7 +7,7 @@ function App() {
       <Cabecera />
       <main className="principal mt-2 row">
         {senyores.map((senyor) => (
-          <Senyor key={senyor.id} />
+          <Senyor key={senyor.id} senyor={senyor} />
         ))}
       </main>
     </div>
