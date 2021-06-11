@@ -3,6 +3,7 @@ import { useState } from "react";
 export const Senyor = (props) => {
   const {
     senyor: { nombre, profesion, foto, estado, twitter, marcado },
+    switchMarcado,
   } = props;
   const getInicial = () => {
     const partesNombre = nombre.split(" ");
@@ -11,7 +12,10 @@ export const Senyor = (props) => {
   };
   const [inicial, setInicial] = useState(getInicial);
   return (
-    <article className="senyor col-8 offset-2 mb-4">
+    <article
+      className={`senyor${marcado ? " marcado " : " "}col-8 offset-2 mb-4`}
+      onClick={() => switchMarcado(marcado)}
+    >
       <div className="row">
         <div className="avatar col">
           <img
