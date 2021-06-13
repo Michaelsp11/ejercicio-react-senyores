@@ -1,20 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Senyor = (props) => {
-  const {
-    senyor: { nombre, profesion, foto, estado, twitter, marcado },
-    switchMarcado,
-  } = props;
+  const { senyor, switchMarcado } = props;
+  const { nombre, profesion, foto, estado, twitter, marcado } = senyor;
   const getInicial = () => {
     const partesNombre = nombre.split(" ");
     const posicion = partesNombre[0].length > 2 ? 0 : 1;
     return partesNombre[posicion].charAt(0).toUpperCase();
   };
   const [inicial, setInicial] = useState(getInicial);
+
   return (
     <article
       className={`senyor${marcado ? " marcado " : " "}col-8 offset-2 mb-4`}
-      onClick={() => switchMarcado(marcado)}
+      onClick={() => switchMarcado(senyor)}
     >
       <div className="row">
         <div className="avatar col">
